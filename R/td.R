@@ -1,3 +1,6 @@
+# recall:
+# H0: the coefficients of the trading days are jointly 0 (= no trading days effects)
+# if p-value is small, we reject H0. There are trading days effects
 
 s<-rjd3toolkit::ABS$X0.2.20.10.M
 #s<-rjd3toolkit::retail$RetailSalesTotal

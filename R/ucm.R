@@ -1,3 +1,5 @@
+source("R/utility.R")
+
 airline<-function(period, th, bth){
   model<-rjd3toolkit::sarima_model("airline", period=period, d=1, bd=1, theta = th, btheta = bth)
   return (model)
@@ -5,13 +7,6 @@ airline<-function(period, th, bth){
 
 model<-airline(12, -.7, -.1)
 ucm<-rjd3toolkit::sarima_decompose(model)
-
-ucm_estimate<-function(x, ucm, stdev=TRUE){
-  jucm<-rjd3toolkit:::.r2jd_ucarima(ucm)
-  jcmps<-rJava::.jcall("jdplus/toolkit/base/r/arima/UcarimaModels", "Ljdplus/toolkit/base/api/math/matrices/Matrix;", "estimate",
-                       as.numeric(x), jucm, as.logical(stdev))
-  return (rjd3toolkit:::.jd2r_matrix(jcmps))
-}
 
 y<-rjd3toolkit::retail$ShoeStores
 

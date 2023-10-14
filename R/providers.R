@@ -1,4 +1,4 @@
-errrjd3providers::set_spreadsheet_paths('./Data')
+rjd3providers::set_spreadsheet_paths('./Data')
 print(rjd3providers::spreadsheet_content("belgium.xlsx"))
 
 indprod<-rjd3providers::spreadsheet_data('belgium.xlsx', 1)

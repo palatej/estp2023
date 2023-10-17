@@ -19,7 +19,7 @@ print(rjd3toolkit::seasonality_kruskalwallis(dls, 12))
 
 print(rjd3toolkit::seasonality_friedman(dls, 12))
 
-print(rjd3toolkit::seasonality_f(ls, 12, "D1"))
+print(rjd3toolkit::seasonality_f(ls[-1], 12, "D1"))
 
 
 # !!!

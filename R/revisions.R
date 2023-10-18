@@ -1,8 +1,10 @@
-s<-rjd3toolkit::retail$BookStores
+s<-rjd3toolkit::retail$ShoeStores
 policy<-"Fixed"
 
-sa<-rjd3tramoseats::tramoseats(s, "rsa0")
-nspec<-rjd3tramoseats::tramoseats_refresh(sa$result_spec, sa$estimation_spec,policy)
+spec<-rjd3tramoseats::tramoseats_spec("rsa0")
+spec$tramo$regression$mean<-NULL
+sa<-rjd3tramoseats::tramoseats(s, spec)
+nspec<-rjd3tramoseats::tramoseats_refresh(sa$result_spec, NULL,policy)
 
 ts_ids<-list(list(period="2006-01-01", start="2006-01-01", id="sa"), list(period="2006-01-01", start="2006-01-01", id="i"))
 rh<-rjd3tramoseats::tramoseats_revisions(s, nspec, ts_ids = ts_ids)
@@ -37,7 +39,7 @@ summary(diff)
 # same with x13
 
 sa<-rjd3x13::x13(s, "rsa0")
-nspec<-rjd3x13::x13_refresh(sa$result_spec, sa$estimation_spec, policy)
+nspec<-rjd3x13::x13_refresh(sa$result_spec, NULL, policy)
 
 ts_ids<-list(list(period="2006-01-01", start="2006-01-01", id="sa"), list(period="2006-01-01", start="2006-01-01", id="i"))
 rh<-rjd3x13::x13_revisions(s, nspec, ts_ids = ts_ids)

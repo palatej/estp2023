@@ -10,13 +10,17 @@ BE <- rjd3toolkit::national_calendar(list(
   rjd3toolkit::special_day('WHITMONDAY'),
   rjd3toolkit::special_day('ASSUMPTION'),
   rjd3toolkit::special_day('ALLSAINTSDAY'),
-  rjd3toolkit::special_day('ARMISTICE')))
+  rjd3toolkit::special_day('ARMISTICE', weight = 0.22),
+  rjd3toolkit::single_day('2004-10-22', weight = .65)
+  ))
 be_cal<-rjd3toolkit::calendar_td(BE, 12, c(2000,1), 60, holiday=7, groups=c(1,1,1,2,2,3,0),
             contrasts = FALSE)
 print(be_cal)
 
-DEF <- rjd3toolkit::national_calendar(list())
-def_cal<-rjd3toolkit::calendar_td(DEF, 12, c(2000,1), 60, holiday=7, groups=c(1,1,1,2,2,3,0),
-                                 contrasts = FALSE)
-print(def_cal)
+#DEF <- rjd3toolkit::national_calendar(list())
+#def_cal<-rjd3toolkit::calendar_td(DEF, 12, c(2000,1), 60, holiday=7, groups=c(1,1,1,2,2,3,0),
+#                                 contrasts = FALSE)
+#print(def_cal)
 
+be_calc<-rjd3toolkit::calendar_td(BE, 12, c(2000,1), 600, holiday=7, groups=c(1,1,1,2,2,3,0),
+                                 contrasts = TRUE)

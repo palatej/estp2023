@@ -20,5 +20,3 @@ def_cal<-rjd3toolkit::calendar_td(DEF, 12, c(2000,1), 60, holiday=7, groups=c(1,
                                  contrasts = FALSE)
 print(def_cal)
 
-print(rjd3toolkit::td(12, c(2000,1), 60, groups=c(1,1,1,2,2,3,0),
-                                 contrasts = FALSE))

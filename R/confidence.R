@@ -3,7 +3,8 @@ rjd3providers::set_spreadsheet_paths('./Data')
 xbe<-rjd3providers::spreadsheet_data('belgium.xlsx', 2)
 
 s<-xbe$series$France$data
-#s<-xbe$series$Netherlands$data
+s<-xbe$series$Netherlands$data
+#s<-xbe$series$Lithuania$data
 
 #s<-rjd3toolkit::retail$DepartmentStoresExclDiscountDepa
 rslt<-rjd3tramoseats::tramoseats_fast(s, 'rsafull')
